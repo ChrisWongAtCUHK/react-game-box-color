@@ -1,0 +1,165 @@
+.color-container {
+  margin: auto;
+  max-width: 380px;
+}
+
+.size-wrap {
+  padding: 15px 15px 0;
+  display: flex;
+  justify-content: space-around;
+  color: #333;
+  font-weight: 600;
+}
+
+.size-wrap .size-1 {
+  color: #eee;
+}
+
+.size-wrap .size-2 {
+  color: #ddd;
+}
+
+.size-wrap .size-3 {
+  color: #ccc;
+}
+
+.size-wrap .size-4 {
+  color: #bbb;
+}
+
+.size-wrap .size-5 {
+  color: #aaa;
+}
+
+.step-wrap {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  justify-content: center;
+}
+
+.step-wrap .step {
+  margin: 0 10px;
+  font-weight: 600;
+  color: #555;
+}
+
+.game-panel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  position: relative;
+  width: 90vw;
+  height: 90vw;
+  max-width: 380px;
+  max-height: 380px;
+  overflow: hidden;
+}
+
+.col-item {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.red {
+  background-color: #ffc1c1;
+}
+
+.yellow {
+  background-color: #eeee00;
+}
+
+.blue {
+  background-color: #1e90ff;
+}
+
+.green {
+  background-color: #66cd00;
+}
+
+.color-btn-wrap {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.color-btn {
+  border-radius: 10px;
+  width: 10vw;
+  height: 20vw;
+  max-width: 80px;
+  max-height: 120px;
+}
+
+.rule-wrap {
+  padding: 15px;
+  color: #ccc;
+  font-size: 15px;
+}
+
+.over-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.over-text {
+  font-size: 18px;
+  color: #4b0082;
+  margin-top: 150px;
+  font-weight: bold;
+  animation: trans-animation 2s linear 0.1s infinite alternate;
+}
+
+.restart {
+  margin-top: 30px;
+  padding: 10px 15px;
+  background-color: #b0e2ff;
+  border-radius: 15px;
+  display: inline-block;
+  color: #fff;
+}
+
+.success-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.success-text {
+  font-size: 18px;
+  color: #333;
+  margin-top: 150px;
+  font-weight: bold;
+  animation: trans-animation 2s linear 0.1s infinite alternate;
+}
+
+.next-pass {
+  margin-top: 30px;
+  padding: 10px 15px;
+  background-color: #bcee68;
+  border-radius: 15px;
+  display: inline-block;
+  color: #fff;
+}
+
+@keyframes trans-animation {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1.3);
+  }
+}
