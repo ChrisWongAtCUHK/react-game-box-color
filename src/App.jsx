@@ -86,35 +86,40 @@ function App() {
     return currentNeedCleanBlock
   }
 
-  const checkGameStatus = (currentBlockColors) => {
+  const checkGameStatus = (currentBlockColors, nextStep) => {
     let colors = _.groupBy(currentBlockColors)
     if (_.size(colors) === 1) {
       setIsSuccess(true)
       return
     }
-    if (step <= 0) {
+    if (nextStep <= 0) {
       setIsOver(true)
     }
   }
 
-  const changeSelectColor = (currentSelectedColor, currentNeedCleanBlock) => {
+  const changeSelectColor = (
+    currentSelectedColor,
+    currentNeedCleanBlock,
+    nextStep,
+  ) => {
     var currentBlockColors = { ...blockColors }
     for (const key of currentNeedCleanBlock) {
       currentBlockColors[key] = currentSelectedColor
     }
     setBlockColors(currentBlockColors)
 
-    checkGameStatus(currentBlockColors)
+    checkGameStatus(currentBlockColors, nextStep)
   }
 
   const clearBlock = (color) => {
     if (color === blockColors[1]) {
       return
     }
-    setStep((prev) => prev - 1)
+    const nextStep = step - 1
+    setStep(nextStep)
     setSelectedColor(color)
     const currentNeedCleanBlock = getNeedCleanBlock()
-    changeSelectColor(color, currentNeedCleanBlock)
+    changeSelectColor(color, currentNeedCleanBlock, nextStep)
   }
 
   return (
@@ -150,6 +155,14 @@ function App() {
           )
         })}
       </div>
+      {isOver && (
+        <div className="over-panel">
+          <div className="over-text">游戏结束</div>
+          <span onClick={() => init()} className="restart">
+            重新开始
+          </span>
+        </div>
+      )}
     </div>
   )
 }
