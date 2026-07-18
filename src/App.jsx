@@ -119,6 +119,12 @@ function App() {
 
   return (
     <div className="color-container">
+      <div className="step-wrap">
+        <div>当前关卡</div>
+        <div className="step">{blockCount / 10}</div>
+        <div>剩余步数</div>
+        <div className="step">{step}</div>
+      </div>
       <div className="game-panel">
         {Array.from({ length: blockCount * blockCount }, (_, i) => i + 1).map(
           (index, col) => {
