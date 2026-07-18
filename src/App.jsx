@@ -7,7 +7,7 @@ const BLOCKCOUNT = 10
 function App() {
   const [isOver, setIsOver] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
-  const [blockCount] = useState(BLOCKCOUNT)
+  const [blockCount, setBlockCount] = useState(BLOCKCOUNT)
   const [step, setStep] = useState(BLOCKCOUNT * 1.2)
   const [blockColors, setBlockColors] = useState(() => {
     let _blockColors = {}
@@ -23,12 +23,12 @@ function App() {
     return (1 / blockCount) * 100 + '%'
   }
 
-  const init = () => {
+  const init = (currentBlockCount = blockCount) => {
     setIsOver(false)
     setIsSuccess(false)
-    setStep(blockCount * 1.2)
+    setStep(currentBlockCount * 1.2)
     let _blockColors = {}
-    for (let w = 1; w <= blockCount * blockCount; w++) {
+    for (let w = 1; w <= currentBlockCount * currentBlockCount; w++) {
       _blockColors[w] = _.sample(COLORS)
     }
     setBlockColors(_blockColors)
@@ -122,6 +122,15 @@ function App() {
     changeSelectColor(color, currentNeedCleanBlock, nextStep)
   }
 
+  const selectSize = (size) => {
+    setBlockCount(size)
+    init(size)
+  }
+
+  const nextPass = () => {
+    selectSize(blockCount + 10)
+  }
+
   return (
     <div className="color-container">
       <div className="step-wrap">
@@ -155,6 +164,16 @@ function App() {
           )
         })}
       </div>
+
+      {isSuccess && (
+        <div className="success-panel">
+          <div className="success-text">闯关成功</div>
+          <span onClick={() => nextPass()} className="next-pass">
+            下一关
+          </span>
+        </div>
+      )}
+
       {isOver && (
         <div className="over-panel">
           <div className="over-text">游戏结束</div>
