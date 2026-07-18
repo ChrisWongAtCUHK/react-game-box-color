@@ -133,6 +133,20 @@ function App() {
 
   return (
     <div className="color-container">
+      <div className="size-wrap">
+        <div>选择密度</div>
+        {Array.from({ length: 5 }, (_, i) => i + 1).map((size) => {
+          return (
+            <div
+              className={`size-${size}`}
+              key={size}
+              onClick={() => selectSize(size * 10)}
+            >
+              {size * 10}
+            </div>
+          )
+        })}
+      </div>
       <div className="step-wrap">
         <div>当前关卡</div>
         <div className="step">{blockCount / 10}</div>
