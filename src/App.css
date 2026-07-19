@@ -31,6 +31,10 @@
   color: #aaa;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .step-wrap {
   padding-top: 20px;
   display: flex;

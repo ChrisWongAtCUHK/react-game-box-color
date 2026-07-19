@@ -138,7 +138,7 @@ function App() {
         {Array.from({ length: 5 }, (_, i) => i + 1).map((size) => {
           return (
             <div
-              className={`size-${size}`}
+              className={`size-${size} cursor-pointer`}
               key={size}
               onClick={() => selectSize(size * 10)}
             >
@@ -170,12 +170,12 @@ function App() {
         )}
       </div>
 
-      <div className="color-btn-wrap">
+      <div className="color-btn-wrap ">
         {COLORS.map((color) => {
           return (
             <div
               key={color}
-              className={`color-btn ${color}`}
+              className={`color-btn ${color} cursor-pointer`}
               onClick={() => clearBlock(color)}
             ></div>
           )
@@ -192,7 +192,7 @@ function App() {
       {isSuccess && (
         <div className="success-panel">
           <div className="success-text">闯关成功</div>
-          <span onClick={() => nextPass()} className="next-pass">
+          <span onClick={() => nextPass()} className="next-pass cursor-pointer">
             下一关
           </span>
         </div>
@@ -201,7 +201,7 @@ function App() {
       {isOver && (
         <div className="over-panel">
           <div className="over-text">游戏结束</div>
-          <span onClick={() => init()} className="restart">
+          <span onClick={() => init()} className="restart cursor-pointer">
             重新开始
           </span>
         </div>
